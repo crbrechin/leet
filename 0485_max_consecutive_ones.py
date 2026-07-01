@@ -1,17 +1,17 @@
 class Solution:
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
-        s = ''
-        for n in nums:
-            s += str(n)
-        # print(f's: {s}') # DEBUG
 
-        ones = s.split('0')
-        # print(f'x: {x}') # DEBUG
+        left,right = 0,0
+        consecutive = 0
 
-        m = 0
-
-        for o in ones:
-            w = len(o)
-            m = max(m, w)
-
-        return m
+        while right < len(nums):
+            # print(f'{nums[left:right]}') # DEBUG
+            if nums[right] == 0:
+                left = right + 1
+                right = left
+            else:
+                right += 1
+                consecutive = max(consecutive, len(nums[left:right]))
+        
+        return consecutive
+             
