@@ -6,7 +6,7 @@ class Solution:
         
         c = 0
         
-        for i in a:
+        for i in arr:
             if (i + 1) in a:
                 c += 1
         
