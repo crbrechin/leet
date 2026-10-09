@@ -1,3 +1,6 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        return Counter(ransomNote) <= Counter(magazine) # Oh my goodness, Python is weird
+        r = Counter(ransomNote)
+        m = Counter(magazine)
+        
+        return all(r[x] <= m[x] for x in r)
